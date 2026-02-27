@@ -1,31 +1,26 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    background: url("https://i.imgur.com/8KQF0QZ.jpg") no-repeat center/cover;
+    color: white;
+    overflow: hidden;
+}
+
+#game {
     text-align: center;
-    color: #333;
+    margin-top: 60px;
 }
 
-#topBar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-#titleBox, #questBox {
-    background: rgba(255,255,255,0.85);
-    padding: 10px;
-    border-radius: 10px;
-    width: 45%;
-}
-
-.container {
-    margin-top: 30px;
+#cookieContainer {
+    margin: 40px auto;
+    width: 260px;
+    height: 260px;
 }
 
 #cookie {
-    width: 200px;
+    width: 100%;
     cursor: pointer;
+    animation: spin 12s linear infinite;
     transition: transform 0.1s;
 }
 
@@ -33,23 +28,43 @@ body {
     transform: scale(0.9);
 }
 
-.shop button, .titles button, #claimQuest {
-    margin: 8px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #ffb703;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Effet +X */
+.floatText {
+    position: absolute;
+    color: gold;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-60px); }
+}
+
+/* Boutique */
+#shop button {
+    margin: 10px;
+    padding: 12px 20px;
     font-size: 16px;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    background: #ffb703;
 }
 
-.shop button:hover,
-.titles button:hover,
-#claimQuest:hover {
-    background: #fb8500;
-    color: white;
-}
-
-.titles {
-    margin-top: 20px;
+/* Profil */
+#profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 12px;
+    width: 180px;
 }
