@@ -1,131 +1,98 @@
 let score = 0;
 let clickPower = 1;
 let autoClickers = 0;
+let totalClicks = 0;
 
 let clickPrice = 10;
 let autoPrice = 50;
 
-let currentTitle = "Novice Cookie";
-
-// Quête
-let questClicks = 50;
-let questReward = 100;
-let questDone = false;
-let clicksToday = 0;
-
-// HTML
 const scoreEl = document.getElementById("score");
 const cookie = document.getElementById("cookie");
-const clickPriceEl = document.getElementById("clickPrice");
-const autoPriceEl = document.getElementById("autoPrice");
-const currentTitleEl = document.getElementById("currentTitle");
-const questText = document.getElementById("questText");
-const claimQuestBtn = document.getElementById("claimQuest");
 
-// --- Cookie click ---
-cookie.addEventListener("click", () => {
+// Profil
+const pScore = document.getElementById("pScore");
+const pClicks = document.getElementById("pClicks");
+const pPower = document.getElementById("pPower");
+const pAuto = document.getElementById("pAuto");
+
+// Cookie click
+cookie.addEventListener("click", (e) => {
     score += clickPower;
-    clicksToday++;
+    totalClicks++;
+
+    showFloat(`+${clickPower}`, e.clientX, e.clientY);
     update();
-    saveGame();
+    save();
 });
 
-// --- Upgrade click ---
-document.getElementById("upgradeClick").addEventListener("click", () => {
+// Effet visuel
+function showFloat(text, x, y) {
+    const span = document.createElement("span");
+    span.className = "floatText";
+    span.textContent = text;
+    span.style.left = x + "px";
+    span.style.top = y + "px";
+    document.body.appendChild(span);
+
+    setTimeout(() => span.remove(), 1000);
+}
+
+// Upgrades
+document.getElementById("upgradeClick").onclick = () => {
     if (score >= clickPrice) {
         score -= clickPrice;
         clickPower++;
         clickPrice = Math.floor(clickPrice * 1.5);
         update();
-        saveGame();
+        save();
     }
-});
+};
 
-// --- Auto clicker ---
-document.getElementById("buyAuto").addEventListener("click", () => {
+document.getElementById("buyAuto").onclick = () => {
     if (score >= autoPrice) {
         score -= autoPrice;
         autoClickers++;
         autoPrice = Math.floor(autoPrice * 1.6);
         update();
-        saveGame();
+        save();
     }
-});
+};
 
-// --- Titres ---
-document.querySelectorAll(".buyTitle").forEach(btn => {
-    btn.addEventListener("click", () => {
-        let price = Number(btn.dataset.price);
-        let title = btn.dataset.title;
-
-        if (score >= price) {
-            score -= price;
-            currentTitle = title;
-            update();
-            saveGame();
-        }
-    });
-});
-
-// --- Auto clicks ---
+// Auto click
 setInterval(() => {
     score += autoClickers;
     update();
-    saveGame();
+    save();
 }, 1000);
 
-// --- Quête ---
-claimQuestBtn.addEventListener("click", () => {
-    if (!questDone && clicksToday >= questClicks) {
-        score += questReward;
-        questDone = true;
-        claimQuestBtn.disabled = true;
-        claimQuestBtn.textContent = "Quête complétée";
-        saveGame();
-    }
-});
-
-// --- Update UI ---
+// Update UI
 function update() {
     scoreEl.textContent = score;
-    clickPriceEl.textContent = clickPrice;
-    autoPriceEl.textContent = autoPrice;
-    currentTitleEl.textContent = currentTitle;
 
-    if (clicksToday >= questClicks && !questDone) {
-        claimQuestBtn.style.background = "green";
-        claimQuestBtn.style.color = "white";
-    }
+    pScore.textContent = score;
+    pClicks.textContent = totalClicks;
+    pPower.textContent = clickPower;
+    pAuto.textContent = autoClickers;
 }
 
-// --- Save / Load ---
-function saveGame() {
-    localStorage.setItem("cookieSave", JSON.stringify({
-        score, clickPower, autoClickers,
-        clickPrice, autoPrice,
-        currentTitle,
-        questDone, clicksToday
+// Save / Load
+function save() {
+    localStorage.setItem("galaxyCookieSave", JSON.stringify({
+        score, clickPower, autoClickers, totalClicks, clickPrice, autoPrice
     }));
 }
 
-function loadGame() {
-    let save = JSON.parse(localStorage.getItem("cookieSave"));
+function load() {
+    const save = JSON.parse(localStorage.getItem("galaxyCookieSave"));
     if (!save) return;
 
     score = save.score;
     clickPower = save.clickPower;
     autoClickers = save.autoClickers;
+    totalClicks = save.totalClicks;
     clickPrice = save.clickPrice;
     autoPrice = save.autoPrice;
-    currentTitle = save.currentTitle;
-    questDone = save.questDone;
-    clicksToday = save.clicksToday;
-
-    if (questDone) {
-        claimQuestBtn.disabled = true;
-        claimQuestBtn.textContent = "Quête complétée";
-    }
     update();
 }
 
-loadGame();
+load();
