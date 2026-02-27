@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Galaxy Cookie 🍪</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Galaxy Cookie 🍪</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- PROFIL -->
 <div id="profile">
-    <h3>👤 Profil</h3>
-    <p>Score : <span id="pScore">0</span></p>
-    <p>Clicks : <span id="pClicks">0</span></p>
-    <p>Puissance : <span id="pPower">1</span></p>
-    <p>Auto : <span id="pAuto">0</span></p>
+<h3>👤 Profil</h3>
+<p>Score : <span id="pScore">0</span></p>
+<p>Clicks : <span id="pClicks">0</span></p>
+<p>Puissance : <span id="pPower">1</span></p>
+<p>Auto : <span id="pAuto">0</span></p>
+<p>Titre : <span id="pTitle">Novice</span></p>
 </div>
 
-<!-- JEU -->
-<div id="game">
-    <h1>🌌 Galaxy Cookie 🍪</h1>
-    <h2><span id="score">0</span> cookies</h2>
+<h1>🌌 Galaxy Cookie 🍪</h1>
+<h2><span id="score">0</span> cookies</h2>
 
-    <div id="cookieContainer">
-        <img id="cookie" src="https://i.imgur.com/6o5VQ3S.png">
-    </div>
+<!-- COOKIE -->
+<div id="cookieZone">
+<img id="cookie" src="https://i.imgur.com/6o5VQ3S.png">
+</div>
 
-    <div id="shop">
-        <button id="upgradeClick">+1 Click (10)</button>
-        <button id="buyAuto">Auto Clicker (50)</button>
-    </div>
+<!-- SHOP -->
+<div id="shop">
+<button id="upgradeClick">+1 Click (10)</button>
+<button id="buyAuto">Auto Clicker (50)</button>
+</div>
+
+<!-- TITRES -->
+<div id="titles">
+<h3>🏷️ Titres</h3>
+<button class="titleBtn" data-title="Apprenti" data-price="100">Apprenti (100)</button>
+<button class="titleBtn" data-title="Expert" data-price="300">Expert (300)</button>
+<button class="titleBtn" data-title="Maître" data-price="800">Maître (800)</button>
+<button class="titleBtn" data-title="Légende" data-price="2000">Légende (2000)</button>
+</div>
+
+<!-- QUÊTE -->
+<div id="quest">
+<h3>📅 Quête du jour</h3>
+<p id="questText"></p>
+<button id="claimQuest">Récupérer</button>
 </div>
 
 <script src="script.js"></script>
