@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    text-align: center;
+    color: #333;
+}
+
+#topBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+#titleBox, #questBox {
+    background: rgba(255,255,255,0.85);
+    padding: 10px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+#cookie {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#cookie:active {
+    transform: scale(0.9);
+}
+
+.shop button, .titles button, #claimQuest {
+    margin: 8px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #ffb703;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.shop button:hover,
+.titles button:hover,
+#claimQuest:hover {
+    background: #fb8500;
+    color: white;
+}
+
+.titles {
+    margin-top: 20px;
+}

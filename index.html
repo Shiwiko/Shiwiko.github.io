@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie Chill 🍪</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="topBar">
+    <div id="titleBox">
+        <h3>Titre actuel :</h3>
+        <span id="currentTitle">Novice Cookie</span>
+    </div>
+
+    <div id="questBox">
+        <h3>Quête du jour</h3>
+        <p id="questText">Clique 50 fois</p>
+        <button id="claimQuest">Récupérer</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>🍪 Cookie Chill 🍪</h1>
+    <h2>Score : <span id="score">0</span></h2>
+
+    <img src="https://i.imgur.com/6o5VQ3S.png" id="cookie">
+
+    <div class="shop">
+        <button id="upgradeClick">+1 Click (Prix: <span id="clickPrice">10</span>)</button>
+        <button id="buyAuto">Auto Clicker (Prix: <span id="autoPrice">50</span>)</button>
+    </div>
+
+    <div class="titles">
+        <h3>🧠 Titres</h3>
+        <button class="buyTitle" data-title="Apprenti Cookie" data-price="100">Apprenti (100)</button>
+        <button class="buyTitle" data-title="Expert Cookie" data-price="300">Expert (300)</button>
+        <button class="buyTitle" data-title="Maître Cookie" data-price="800">Maître (800)</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
