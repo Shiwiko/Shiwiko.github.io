@@ -1,68 +1,93 @@
-body {
-margin: 0;
-font-family: Arial, sans-serif;
-background: url("https://i.imgur.com/8KQF0QZ.jpg") center/cover no-repeat;
-color: white;
-text-align: center;
-overflow: hidden;
+body{
+  margin:0;
+  font-family:Arial;
+  color:white;
+  text-align:center;
 }
 
-#cookieZone {
-margin: 40px auto;
-width: 260px;
-height: 260px;
+/* VIDEO BACKGROUND */
+#bg-video{
+  position:fixed;
+  right:0;
+  bottom:0;
+  min-width:100%;
+  min-height:100%;
+  object-fit:cover;
+  z-index:-1;
 }
 
-#cookie {
-width: 100%;
-cursor: pointer;
-animation: spin 15s linear infinite, float 3s ease-in-out infinite;
-transition: transform 0.1s;
+/* PLAYER */
+.top-player{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  z-index:10;
 }
 
-#cookie:active {
-transform: scale(0.9);
+/* MENU MUSIQUE */
+.music-menu{
+  position:fixed;
+  top:50px;
+  right:20px;
+  background:rgba(0,0,0,0.8);
+  padding:10px;
+  border-radius:10px;
+  display:none;
+  z-index:20;
 }
 
-@keyframes spin {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+.music-menu button{
+  display:block;
+  margin:5px 0;
+  width:120px;
 }
 
-@keyframes float {
-0%,100% { transform: translateY(0); }
-50% { transform: translateY(-15px); }
+/* CONTENU */
+.content{
+  margin-top:120px;
 }
 
-.float {
-position: absolute;
-color: gold;
-font-size: 24px;
-pointer-events: none;
-animation: up 1s forwards;
+/* PROFIL */
+.profile img{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:4px solid white;
 }
 
-@keyframes up {
-from { opacity:1; transform: translateY(0); }
-to { opacity:0; transform: translateY(-60px); }
+/* TEXTE */
+.description{
+  margin-top:15px;
+  font-size:20px;
 }
 
-#profile {
-position: fixed;
-top: 15px;
-right: 15px;
-background: rgba(0,0,0,0.6);
-padding: 15px;
-border-radius: 12px;
-width: 180px;
+/* BOUTONS */
+.buttons{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
 }
 
-button {
-margin: 8px;
-padding: 10px 18px;
-font-size: 16px;
-border: none;
-border-radius: 10px;
-background: #ffb703;
-cursor: pointer;
+.link-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(0,0,0,0.6);
+  padding:10px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  width:250px;
+}
+
+.link-btn img{
+  width:40px;
 }
