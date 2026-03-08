@@ -20,14 +20,6 @@
   <button onclick="stopVideo()">Stop</button>
   Volume
   <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
-  <button onclick="toggleVideoMenu()">Choisir Vidéo</button>
-</div>
-
-<!-- MENU VIDÉOS -->
-<div class="music-menu" id="videoMenu">
-  <button onclick="changeVideo('https://n.uguu.se/aYCGxlGg.mp4')">Vidéo 1</button>
-  <button onclick="changeVideo('https://n.uguu.se/example2.mp4')">Vidéo 2</button>
-  <button onclick="changeVideo('https://n.uguu.se/example3.mp4')">Vidéo 3</button>
 </div>
 
 <!-- CONTENU -->
@@ -70,7 +62,9 @@ video.volume = 0.5;
 
 // Play / Stop vidéo
 function playVideo(){
-  video.play();
+  video.play().catch(() => {
+    alert("Clique sur Play pour autoriser le son !");
+  });
 }
 
 function stopVideo(){
@@ -80,18 +74,6 @@ function stopVideo(){
 // Changer le volume
 function setVolume(v){
   video.volume = v;
-}
-
-// Changer la vidéo
-function changeVideo(videoSrc){
-  video.src = videoSrc;
-  video.play();
-}
-
-// Toggle menu vidéo
-function toggleVideoMenu(){
-  const menu = document.getElementById("videoMenu");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 </script>
 
