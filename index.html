@@ -10,14 +10,12 @@
 <body>
 
 <!-- VIDEO BACKGROUND -->
-<video id="bg-video" loop playsinline autoplay muted>
+<video id="bg-video" loop autoplay playsinline>
   <source src="https://n.uguu.se/aYCGxlGg.mp4" type="video/mp4">
 </video>
 
 <!-- PLAYER -->
 <div class="top-player">
-  <button onclick="unmuteVideo()">Activer le son</button>
-  <button onclick="stopVideo()">Stop</button>
   Volume
   <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
 </div>
@@ -27,9 +25,12 @@
 
   <!-- PROFIL STYLE DISCORD -->
   <div class="profile-card">
+    <!-- GIF derrière le profil -->
     <div class="profile-bg">
       <img src="https://i.postimg.cc/yNx2k9PC/e2a8dac3f69e6677326b1d0f9d510925.gif" alt="Fond profil">
     </div>
+
+    <!-- Image de profil ronde -->
     <div class="profile-img">
       <img src="https://i.postimg.cc/vBfCMhP8/b4db858757df355a17ac4743ace291b7.jpg" alt="Profil">
     </div>
@@ -65,23 +66,24 @@ let video = document.getElementById("bg-video");
 // Volume initial
 video.volume = 0.5;
 
-// Stop vidéo
-function stopVideo(){
-  video.pause();
-}
-
-// Changer le volume
+// Jouer / Stop
 function setVolume(v){
   video.volume = v;
 }
 
-// Activer le son
-function unmuteVideo(){
-  video.muted = false;
-  video.play().catch(() => {
-    alert("Clique sur Play pour autoriser le son !");
+// Animation des boutons à l’arrivée
+window.addEventListener("load", () => {
+  const buttons = document.querySelectorAll(".link-btn, .description");
+  buttons.forEach((el, i) => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(20px)";
+    setTimeout(() => {
+      el.style.transition = "all 0.6s ease-out";
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    }, i * 200); // délai pour effet séquentiel
   });
-}
+});
 </script>
 
 </body>
