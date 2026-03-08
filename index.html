@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Shiwiko</title>
+<title>Profil</title>
 <link rel="stylesheet" href="profil.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="profile-name">
-      <h2>Shiwiko</h2>
+      <!-- Texte supprimé mais espace conservé -->
     </div>
 
     <div class="buttons">
@@ -50,8 +50,9 @@
 <script>
 let video = document.getElementById("bg-video");
 video.volume = 0.5;
+
 window.addEventListener("load", () => {
-  const items = document.querySelectorAll(".profile-card, .profile-name, .link-btn");
+  const items = document.querySelectorAll(".profile-card, .link-btn");
   items.forEach((el, i) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(20px)";
