@@ -18,7 +18,7 @@ body {
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:-1;
+  z-index:-2;
 }
 
 .content {
@@ -39,8 +39,8 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding-top:180px;
-  padding-bottom:80px; /* Plus d'espace en bas pour les boutons */
+  padding-top:280px; /* assez d'espace pour bannière + profil + nom */
+  padding-bottom:80px;
 }
 
 .profile-banner {
@@ -50,6 +50,7 @@ body {
   position:absolute;
   top:0;
   left:0;
+  z-index:-1;
 }
 
 .profile-banner img {
@@ -65,7 +66,7 @@ body {
   border:5px solid white;
   overflow:hidden;
   position:absolute;
-  top:180px;
+  top:150px; /* place bien le profil sur la bannière */
   left:calc(50% - 110px);
   z-index:2;
 }
@@ -77,8 +78,9 @@ body {
 }
 
 .profile-name {
-  margin-top:270px; /* juste sous le profil */
+  margin-top:260px; /* sous le profil */
   text-align:center;
+  z-index:3;
 }
 
 .profile-name h2 {
@@ -87,11 +89,12 @@ body {
 }
 
 .buttons {
-  margin-top:50px; /* plus grand espace sous Shiwiko pour les boutons */
+  margin-top:40px; /* bien en dessous du nom */
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:20px;
+  z-index:3;
 }
 
 .link-btn {
@@ -124,6 +127,7 @@ body {
   font-weight:bold;
   box-shadow:0 0 15px rgba(0,0,0,0.6);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index:3;
 }
 
 .views:hover {
@@ -133,20 +137,20 @@ body {
 
 @media (max-width:600px){
   .profile-card {
-    padding-top:150px;
+    padding-top:200px;
     padding-bottom:60px;
   }
   .profile-banner {
-    height:200px;
+    height:180px;
   }
   .profile-img {
     width:140px;
     height:140px;
-    top:100px;
+    top:80px;
     left:calc(50% - 70px);
   }
   .profile-name {
-    margin-top:160px;
+    margin-top:150px;
   }
   .profile-name h2 {
     font-size:26px;
