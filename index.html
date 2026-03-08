@@ -11,13 +11,11 @@
 
 <!-- VIDEO BACKGROUND -->
 <video autoplay muted loop id="bg-video">
-  <source src="background.mp4" type="video/mp4">
+  <source src="background1.mp4" type="video/mp4">
 </video>
 
 <!-- PLAYER EN HAUT -->
 <div class="top-player">
-  <button onclick="playMusic()">Play</button>
-  <button onclick="stopMusic()">Stop</button>
   Volume
   <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
   <button onclick="toggleMusicMenu()">Musique</button>
@@ -25,9 +23,9 @@
 
 <!-- MENU MUSIQUE -->
 <div class="music-menu" id="musicMenu">
-  <button onclick="changeMusic('music1.mp3')">Musique 1</button>
-  <button onclick="changeMusic('music2.mp3')">Musique 2</button>
-  <button onclick="changeMusic('music3.mp3')">Musique 3</button>
+  <button onclick="changeMedia('music1.mp3', 'background1.mp4')">Musique 1</button>
+  <button onclick="changeMedia('music2.mp3', 'background2.mp4')">Musique 2</button>
+  <button onclick="changeMedia('music3.mp3', 'background3.mp4')">Musique 3</button>
 </div>
 
 <!-- CONTENU -->
@@ -63,20 +61,33 @@
 </div>
 
 <!-- AUDIO -->
-<audio id="music" src="music1.mp3"></audio>
+<audio id="music" autoplay loop>
+  <source src="music1.mp3" type="audio/mp3">
+</audio>
 
 <script>
 let music = document.getElementById("music");
+let video = document.getElementById("bg-video");
 
-function playMusic(){ music.play(); }
-function stopMusic(){ music.pause(); }
-function setVolume(v){ music.volume = v; }
+// Volume initial
+music.volume = 0.5;
 
-function changeMusic(src){
-  music.src = src;
+// Fonction pour changer musique et vidéo en même temps
+function changeMedia(musicSrc, videoSrc){
+  music.src = musicSrc;
   music.play();
+  
+  // Change la source de la vidéo
+  video.src = videoSrc;
+  video.play();
 }
 
+// Fonction pour gérer le volume
+function setVolume(v){
+  music.volume = v;
+}
+
+// Toggle menu musique
 function toggleMusicMenu(){
   let menu = document.getElementById("musicMenu");
   if(menu.style.display === "block"){
@@ -85,6 +96,12 @@ function toggleMusicMenu(){
     menu.style.display = "block";
   }
 }
+
+// Auto play musique et vidéo au chargement
+window.addEventListener('load', () => {
+  music.play();
+  video.play();
+});
 </script>
 
 </body>
