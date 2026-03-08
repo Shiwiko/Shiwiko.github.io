@@ -44,19 +44,14 @@
       </a>
     </div>
 
-    <div class="views">
-      👀 Visiteurs uniques : <span id="visitor-count">0</span>
-    </div>
-
   </div>
 </div>
 
 <script>
 let video = document.getElementById("bg-video");
 video.volume = 0.5;
-
 window.addEventListener("load", () => {
-  const items = document.querySelectorAll(".profile-card, .profile-name, .link-btn, .views");
+  const items = document.querySelectorAll(".profile-card, .profile-name, .link-btn");
   items.forEach((el, i) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(20px)";
@@ -67,22 +62,6 @@ window.addEventListener("load", () => {
     }, i * 200);
   });
 });
-
-const visitorKey = "shiwiko_visited";
-if(!localStorage.getItem(visitorKey)){
-  fetch("https://api.countapi.xyz/hit/shiwiko-site/uniquevisitors")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("visitor-count").innerText = data.value;
-      localStorage.setItem(visitorKey, "true");
-    });
-}else{
-  fetch("https://api.countapi.xyz/get/shiwiko-site/uniquevisitors")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("visitor-count").innerText = data.value;
-    });
-}
 </script>
 
 </body>
