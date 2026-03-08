@@ -10,13 +10,13 @@
 <body>
 
 <!-- VIDEO BACKGROUND -->
-<video id="bg-video" loop playsinline>
+<video id="bg-video" loop playsinline autoplay muted>
   <source src="https://n.uguu.se/aYCGxlGg.mp4" type="video/mp4">
 </video>
 
 <!-- PLAYER -->
 <div class="top-player">
-  <button onclick="playVideo()">Play</button>
+  <button onclick="unmuteVideo()">Activer le son</button>
   <button onclick="stopVideo()">Stop</button>
   Volume
   <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
@@ -25,9 +25,14 @@
 <!-- CONTENU -->
 <div class="content">
 
-  <!-- PROFIL -->
-  <div class="profile">
-    <img src="https://i.postimg.cc/vBfCMhP8/b4db858757df355a17ac4743ace291b7.jpg" alt="Profil">
+  <!-- PROFIL STYLE DISCORD -->
+  <div class="profile-card">
+    <div class="profile-bg">
+      <img src="https://i.postimg.cc/yNx2k9PC/e2a8dac3f69e6677326b1d0f9d510925.gif" alt="Arrière-plan">
+    </div>
+    <div class="profile-img">
+      <img src="https://i.postimg.cc/vBfCMhP8/b4db858757df355a17ac4743ace291b7.jpg" alt="Profil">
+    </div>
   </div>
 
   <!-- DESCRIPTION -->
@@ -60,20 +65,22 @@ let video = document.getElementById("bg-video");
 // Volume initial
 video.volume = 0.5;
 
-// Play / Stop vidéo
-function playVideo(){
-  video.play().catch(() => {
-    alert("Clique sur Play pour autoriser le son !");
-  });
-}
-
+// Stop vidéo
 function stopVideo(){
   video.pause();
 }
 
-// Changer le volume
+// Régler le volume
 function setVolume(v){
   video.volume = v;
+}
+
+// Activer le son
+function unmuteVideo(){
+  video.muted = false;
+  video.play().catch(() => {
+    alert("Clique sur Play pour autoriser le son !");
+  });
 }
 </script>
 
