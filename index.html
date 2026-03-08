@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<video id="bg-video" loop autoplay muted playsinline>
+<video id="bg-video" loop autoplay playsinline>
   <source src="https://n.uguu.se/aYCGxlGg.mp4" type="video/mp4">
 </video>
 
@@ -44,6 +44,8 @@
       </a>
     </div>
 
+    <button id="play-sound-btn">Activer le son</button>
+
   </div>
 </div>
 
@@ -62,6 +64,14 @@ window.addEventListener("load", () => {
       el.style.transform = "translateY(0)";
     }, i * 200);
   });
+});
+
+// Bouton pour activer le son
+const btn = document.getElementById("play-sound-btn");
+btn.addEventListener("click", () => {
+  video.muted = false;
+  video.play();
+  btn.style.display = "none"; // cache le bouton après activation
 });
 </script>
 
