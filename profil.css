@@ -26,25 +26,25 @@ body {
   align-items:center;
   flex-direction:column;
   width:100%;
-  max-width:500px;
-  padding:10px;
 }
 
 .profile-card {
   position:relative;
-  width:100%;
+  width:90%;
+  max-width:600px;
   background:rgba(0,0,0,0.75);
-  border-radius:16px;
+  border-radius:20px;
   overflow:hidden;
-  padding-top:80px;
   display:flex;
   flex-direction:column;
   align-items:center;
+  padding-top:100px;
+  padding-bottom:30px;
 }
 
 .profile-banner {
   width:100%;
-  height:180px;
+  height:220px;
   overflow:hidden;
   position:absolute;
   top:0;
@@ -58,14 +58,14 @@ body {
 }
 
 .profile-img {
-  width:150px;
-  height:150px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   border:5px solid white;
   overflow:hidden;
   position:absolute;
-  top:100px;
-  left:20px;
+  top:120px;
+  left:calc(50% - 90px);
   z-index:2;
 }
 
@@ -76,18 +76,18 @@ body {
 }
 
 .profile-info {
-  margin-top:120px;
+  margin-top:140px;
   text-align:center;
 }
 
 .profile-info h2 {
   margin:10px 0 5px;
-  font-size:26px;
+  font-size:30px;
 }
 
 .profile-info p {
   margin:0;
-  font-size:18px;
+  font-size:20px;
   color:#ccc;
 }
 
@@ -96,7 +96,7 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:12px;
+  gap:15px;
 }
 
 .link-btn {
@@ -104,73 +104,70 @@ body {
   align-items:center;
   gap:10px;
   background:rgba(255,255,255,0.15);
-  padding:12px 25px;
-  border-radius:10px;
+  padding:14px 30px;
+  border-radius:12px;
   text-decoration:none;
   color:white;
   width:100%;
-  max-width:300px;
+  max-width:350px;
   opacity:0;
   transform:translateY(20px);
 }
 
 .link-btn img {
-  width:35px;
+  width:40px;
 }
 
 .views {
   margin-top:25px;
-  font-size:18px;
+  font-size:20px;
   background: rgba(0,0,0,0.5);
-  padding: 10px 20px;
-  border-radius:12px;
+  padding: 12px 25px;
+  border-radius:14px;
   color: #fff;
   text-align:center;
   font-weight:bold;
-  box-shadow:0 0 10px rgba(0,0,0,0.6);
+  box-shadow:0 0 12px rgba(0,0,0,0.6);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .views:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0,255,255,0.8);
+  box-shadow: 0 0 25px rgba(0,255,255,0.8);
 }
 
 @media (max-width:600px){
-  .content {
-    max-width:90%;
-  }
   .profile-card {
-    padding-top:60px;
+    padding-top:80px;
   }
   .profile-banner {
-    height:120px;
+    height:150px;
   }
   .profile-img {
-    width:100px;
-    height:100px;
-    top:70px;
-    left:15px;
+    width:120px;
+    height:120px;
+    top:80px;
+    left:calc(50% - 60px);
   }
   .profile-info {
-    margin-top:90px;
+    margin-top:100px;
   }
   .profile-info h2 {
-    font-size:20px;
+    font-size:22px;
   }
   .profile-info p {
-    font-size:14px;
+    font-size:16px;
   }
   .link-btn {
     width:100%;
-    max-width:220px;
-    padding:8px 15px;
+    max-width:250px;
+    padding:10px 20px;
   }
   .link-btn img {
-    width:25px;
+    width:30px;
   }
   .views {
     font-size:16px;
-    padding:8px 15px;
+    padding:10px 20px;
   }
 }
