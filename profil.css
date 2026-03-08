@@ -39,7 +39,7 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding-top:370px; /* augmente l’espace pour le profil + nom */
+  padding-top:370px;
   padding-bottom:30px;
 }
 
@@ -79,14 +79,9 @@ body {
 }
 
 .profile-name {
-  margin-top:300px; /* espace augmenté pour bien séparer du profil */
+  margin-top:300px;
   text-align:center;
   z-index:3;
-}
-
-.profile-name h2 {
-  font-size:42px; /* texte plus grand */
-  margin:0 0 25px 0; /* espace sous le nom pour boutons */
 }
 
 .buttons {
@@ -131,10 +126,6 @@ body {
   }
   .profile-name {
     margin-top:180px;
-  }
-  .profile-name h2 {
-    font-size:28px;
-    margin-bottom:15px;
   }
   .link-btn {
     width:100%;
