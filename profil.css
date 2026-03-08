@@ -39,13 +39,13 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding-top:450px; /* espace pour profil */
+  padding-top:450px;
   padding-bottom:50px;
 }
 
 .profile-banner {
   width:100%;
-  height:350px; /* bannière plus grande */
+  height:350px;
   overflow:hidden;
   position:absolute;
   top:0;
@@ -60,7 +60,7 @@ body {
 }
 
 .profile-img {
-  width:260px; /* profil plus grand */
+  width:260px;
   height:260px;
   border-radius:50%;
   border:5px solid white;
@@ -70,7 +70,7 @@ body {
   left:50%;
   transform:translateX(-50%);
   z-index:2;
-  margin-bottom:70px; /* espace sous le profil */
+  margin-bottom:70px;
 }
 
 .profile-img img {
@@ -80,7 +80,7 @@ body {
 }
 
 .profile-name {
-  margin-top:0; /* pas de texte mais espace conservé */
+  margin-top:0;
   text-align:center;
   z-index:3;
 }
@@ -89,9 +89,9 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:25px; /* écart entre boutons */
+  gap:25px;
   z-index:3;
-  padding-top:70px; /* espace avant les boutons = “trou” sous le profil */
+  padding-top:70px;
 }
 
 .link-btn {
@@ -113,9 +113,9 @@ body {
 
 .link-btn img {
   width:55px;
-  height:55px;       /* hauteur fixe pour garder le cercle */
-  border-radius:50%; /* rend l’image ronde */
-  object-fit:cover;  /* recadre correctement */
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
 @media (max-width:600px){
