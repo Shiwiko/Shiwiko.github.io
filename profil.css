@@ -39,7 +39,7 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding-top:450px; /* plus grand espace pour profil */
+  padding-top:450px; /* espace pour profil */
   padding-bottom:50px;
 }
 
@@ -89,7 +89,7 @@ body {
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:25px; /* plus grand écart entre boutons */
+  gap:25px; /* écart entre boutons */
   z-index:3;
   padding-top:70px; /* espace avant les boutons = “trou” sous le profil */
 }
@@ -97,6 +97,7 @@ body {
 .link-btn {
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:15px;
   background:rgba(255,255,255,0.15);
   padding:20px 50px;
@@ -112,6 +113,9 @@ body {
 
 .link-btn img {
   width:55px;
+  height:55px;       /* hauteur fixe pour garder le cercle */
+  border-radius:50%; /* rend l’image ronde */
+  object-fit:cover;  /* recadre correctement */
 }
 
 @media (max-width:600px){
@@ -139,5 +143,8 @@ body {
   }
   .link-btn img {
     width:35px;
+    height:35px;
+    border-radius:50%;
+    object-fit:cover;
   }
 }
