@@ -14,49 +14,44 @@
   <source src="https://n.uguu.se/aYCGxlGg.mp4" type="video/mp4">
 </video>
 
-<!-- PLAYER -->
-<div class="top-player">
-  Volume
-  <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
-</div>
-
 <!-- CONTENU -->
 <div class="content">
 
-  <!-- PROFIL STYLE DISCORD -->
+  <!-- CARTE PROFIL STYLE DISCORD -->
   <div class="profile-card">
-    <!-- GIF derrière le profil -->
-    <div class="profile-bg">
-      <img src="https://i.postimg.cc/yNx2k9PC/e2a8dac3f69e6677326b1d0f9d510925.gif" alt="Fond profil">
+    <!-- Bannière -->
+    <div class="profile-banner">
+      <img src="https://i.postimg.cc/yNx2k9PC/e2a8dac3f69e6677326b1d0f9d510925.gif" alt="Bannière">
     </div>
 
-    <!-- Image de profil ronde -->
+    <!-- Profil rond -->
     <div class="profile-img">
       <img src="https://i.postimg.cc/vBfCMhP8/b4db858757df355a17ac4743ace291b7.jpg" alt="Profil">
     </div>
-  </div>
 
-  <!-- DESCRIPTION -->
-  <div class="description">
-    Bienvenue sur mon site
-  </div>
+    <!-- Nom et description -->
+    <div class="profile-info">
+      <h2>Shiwiko</h2>
+      <p>Bienvenue sur mon site</p>
+    </div>
 
-  <!-- BOUTONS -->
-  <div class="buttons">
-    <a class="link-btn" href="https://youtube.com">
-      <img src="https://i.postimg.cc/Y0xS2Z8h/youtube.png" alt="YouTube">
-      <span>Youtube</span>
-    </a>
+    <!-- Boutons -->
+    <div class="buttons">
+      <a class="link-btn" href="https://youtube.com">
+        <img src="https://i.postimg.cc/Y0xS2Z8h/youtube.png" alt="YouTube">
+        <span>Youtube</span>
+      </a>
 
-    <a class="link-btn" href="https://discord.com">
-      <img src="https://i.postimg.cc/SQ5mm1QT/85e9d74f125bb82aa4be2478ce02bbd4.jpg" alt="Discord">
-      <span>Discord</span>
-    </a>
+      <a class="link-btn" href="https://discord.com">
+        <img src="https://i.postimg.cc/SQ5mm1QT/85e9d74f125bb82aa4be2478ce02bbd4.jpg" alt="Discord">
+        <span>Discord</span>
+      </a>
 
-    <a class="link-btn" href="https://twitter.com">
-      <img src="https://i.postimg.cc/8P3GkxMf/twitter.png" alt="Twitter">
-      <span>Twitter</span>
-    </a>
+      <a class="link-btn" href="https://twitter.com">
+        <img src="https://i.postimg.cc/8P3GkxMf/twitter.png" alt="Twitter">
+        <span>Twitter</span>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -66,22 +61,17 @@ let video = document.getElementById("bg-video");
 // Volume initial
 video.volume = 0.5;
 
-// Jouer / Stop
-function setVolume(v){
-  video.volume = v;
-}
-
-// Animation des boutons à l’arrivée
+// Animation fade-in
 window.addEventListener("load", () => {
-  const buttons = document.querySelectorAll(".link-btn, .description");
-  buttons.forEach((el, i) => {
+  const items = document.querySelectorAll(".profile-card, .profile-info, .link-btn");
+  items.forEach((el, i) => {
     el.style.opacity = 0;
     el.style.transform = "translateY(20px)";
     setTimeout(() => {
       el.style.transition = "all 0.6s ease-out";
       el.style.opacity = 1;
       el.style.transform = "translateY(0)";
-    }, i * 200); // délai pour effet séquentiel
+    }, i * 200);
   });
 });
 </script>
